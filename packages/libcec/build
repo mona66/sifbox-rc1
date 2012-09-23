@@ -1,0 +1,33 @@
+#!/bin/sh
+
+. config/options
+get_meta $1
+
+cd $PKG_BUILD_DIR
+
+# da OpenELEC
+if [ "$TARGET_MACHINE" = raspberrypi ]; then
+  LIBCEC_RPI="--enable-rpi --with-rpi-include-path=$SYSROOT_PREFIX/usr/include --with-rpi-lib-path=$SYSROOT_PREFIX/usr/lib"
+else
+  LIBCEC_RPI="--disable-rpi"
+fi
+
+# dont use some optimizations because of build problems
+  LDFLAGS=`echo $LDFLAGS | sed -e "s|-Wl,--as-needed||"`
+
+autoreconf -vim
+
+do_configure --host=$TARGET_NAME \
+            --build=$HOST_NAME \
+            --prefix=/usr \
+            --sysconfdir=/etc \
+            --disable-static \
+            --enable-shared \
+            $LIBCEC_RPI
+
+#FINE OPEN
+#autoreconf -vif
+#do_configure
+
+make
+make_install

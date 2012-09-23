@@ -1,0 +1,12 @@
+#PKG_URL_REV=365953fb50
+#PKG_URL_REV=efef226f0a
+PKG_VERSION=11.0.2
+PKG_URL="http://sources.openelec.tv/devel/xbmc-${PKG_VERSION}.tar.xz"
+#PKG_VERSION=rbp-git${PKG_URL_REV}
+#PKG_URL_PROTO=git
+#PKG_URL="git://github.com/xbmc/xbmc-rbp.git"
+#PKG_URL="git://github.com/ntadej/xbmc.git"
+#PKG_VERSION="365953f"
+#PKG_REV="1"
+#PKG_URL="http://sources.openelec.tv/devel/xbmc-rpi-365953f.tar.xz"
+PKG_DEPENDS="boost Python zlib bzip2 systemd pcre ffmpeg alsa-lib libass curl libssh rtmpdump fontconfig tinyxml freetype libmad libogg libvorbis libmodplug faad2 flac lame libmpeg2 SDL SDL_mixer SDL_image yajl sqlite alsa bc xbmc-addon-settings"
