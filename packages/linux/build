@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . config/options
-#export MAKEFLAGS=-j1
+export MAKEFLAGS=-j1
 
 unset LDFLAGS
 
@@ -45,7 +45,7 @@ if [ -d .install/lib/firmware ]; then
 else
   mkdir -p .install/firmware
 fi
-rm -f $kmod_dir/build $kmod_dir/source $kmod_dir/modules.*
+rm -Rf $kmod_dir/build $kmod_dir/source $kmod_dir/modules.*
 strip_kmods "$kmod_dir" "$debug_dir"
 
 mkdir -p .install/boot
